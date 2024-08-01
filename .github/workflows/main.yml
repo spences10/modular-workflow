@@ -13,15 +13,6 @@ env:
 
 jobs:
   process-pr:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Load configuration
-        id: config
-        run: echo "config=$(cat .github/config.yml | yq -o json)" >> $GITHUB_OUTPUT
-
-      - name: Add label to PR
-        uses: ./.github/workflows/add-label.yml
-        with:
-          label: 'needs-review'
+    uses: spences10/modular-workflow/.github/workflows/add-label.yml@main
+    with:
+      label: 'needs-review'
