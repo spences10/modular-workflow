@@ -12,7 +12,7 @@ jobs:
     uses: ./.github/workflows/add-label.yml
     with:
       label: 'needs-review'
-    env:
+    secrets:
       UBUNTU_VERSION: ${{ secrets.UBUNTU_VERSION }}
       NODE_VERSION: ${{ secrets.NODE_VERSION }}
       PNPM_VERSION: ${{ secrets.PNPM_VERSION }}
