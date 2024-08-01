@@ -6,16 +6,13 @@ on:
       label:
         required: true
         type: string
-      ubuntu_version:
-        required: true
-        type: string
 
 jobs:
   add-label:
-    runs-on: ubuntu-${{ inputs.ubuntu_version }}
-    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v7
+      - name: Add label to PR
+        uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |

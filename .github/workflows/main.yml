@@ -6,12 +6,14 @@ on:
   pull_request:
     branches: [main]
 
-jobs:
-  env:
-    uses: spences10/modular-workflow/.github/workflows/env.yml@main
+env:
+  UBUNTU_VERSION: '22.04'
+  NODE_VERSION: '20'
+  PNPM_VERSION: '8'
 
+jobs:
   process-pr:
     if: github.event_name == 'pull_request'
-    uses: spences10/modular-workflow/.github/workflows/add-label.yml@main
+    uses: ./.github/workflows/add-label.yml
     with:
       label: 'needs-review'
