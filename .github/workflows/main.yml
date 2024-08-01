@@ -12,7 +12,6 @@ jobs:
     uses: ./.github/workflows/add-label.yml
     with:
       label: 'needs-review'
-    secrets:
-      UBUNTU_VERSION: ${{ secrets.UBUNTU_VERSION }}
-      NODE_VERSION: ${{ secrets.NODE_VERSION }}
-      PNPM_VERSION: ${{ secrets.PNPM_VERSION }}
+      ubuntu_version: ${{ secrets.UBUNTU_VERSION }}
+      node_version: ${{ secrets.NODE_VERSION }}
+      pnpm_version: ${{ secrets.PNPM_VERSION }}
