@@ -17,3 +17,4 @@ jobs:
     uses: ./.github/workflows/add-label.yml
     with:
       label: 'needs-review'
+      ubuntu_version: ${{ env.UBUNTU_VERSION }}
