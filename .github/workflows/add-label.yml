@@ -7,17 +7,12 @@ on:
         required: true
         type: string
 
-env:
-  UBUNTU_VERSION: '22.04'
-  NODE_VERSION: '20'
-  PNPM_VERSION: '8'
-
 jobs:
   add-label:
-    runs-on: ubuntu-${{ env.UBUNTU_VERSION }}
-    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v7
+      - name: Add label to PR
+        uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
