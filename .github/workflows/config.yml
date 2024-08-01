@@ -1,4 +1,0 @@
-ci:
-  ubuntu_version: '22.04'
-  node_version: '18'
-  pnpm_version: '8'
