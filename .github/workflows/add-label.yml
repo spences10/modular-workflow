@@ -6,29 +6,20 @@ on:
       label:
         required: true
         type: string
-      ubuntu_version:
-        required: true
-        type: string
-      node_version:
-        required: true
-        type: string
-      pnpm_version:
-        required: true
-        type: string
 
 jobs:
   add-label:
-    runs-on: ubuntu-${{ inputs.ubuntu_version }}
+    runs-on: ubuntu-${{ env.UBUNTU_VERSION }}
     steps:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ inputs.node_version }}
+          node-version: ${{ env.NODE_VERSION }}
 
       - name: Setup PNPM
         uses: pnpm/action-setup@v2
         with:
-          version: ${{ inputs.pnpm_version }}
+          version: ${{ env.PNPM_VERSION }}
 
       - name: Add label to PR
         uses: actions/github-script@v7
