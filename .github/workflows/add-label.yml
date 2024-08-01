@@ -6,10 +6,13 @@ on:
       label:
         required: true
         type: string
+      ubuntu_version:
+        required: true
+        type: string
 
 jobs:
   add-label:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-${{ inputs.ubuntu_version }}
     if: github.event_name == 'pull_request'
     steps:
       - uses: actions/github-script@v7
