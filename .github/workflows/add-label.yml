@@ -6,13 +6,15 @@ on:
       label:
         required: true
         type: string
-      ubuntu_version:
-        required: true
-        type: string
+
+env:
+  UBUNTU_VERSION: '22.04'
+  NODE_VERSION: '20'
+  PNPM_VERSION: '8'
 
 jobs:
   add-label:
-    runs-on: ubuntu-${{ inputs.ubuntu_version }}
+    runs-on: ubuntu-${{ env.UBUNTU_VERSION }}
     if: github.event_name == 'pull_request'
     steps:
       - uses: actions/github-script@v7
