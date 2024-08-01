@@ -13,6 +13,7 @@ env:
 
 jobs:
   process-pr:
+    if: github.event_name == 'pull_request'
     uses: spences10/modular-workflow/.github/workflows/add-label.yml@main
     with:
       label: 'needs-review'
