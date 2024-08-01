@@ -17,3 +17,8 @@ jobs:
     uses: ./.github/workflows/add-label.yml
     with:
       label: 'needs-review'
+
+  lint:
+    uses: ./.github/workflows/lint.yml
+    with:
+      files: '**/*.{js,jsx,ts,tsx}'
